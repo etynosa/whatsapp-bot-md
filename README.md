@@ -12,14 +12,7 @@ A simple WhatsApp User bot.
    - [FORK](https://github.com/lyfe00011/whatsapp-bot-md/fork) this repository.
    - Now [DEPLOY](https://qr-hazel-alpha.vercel.app/heroku).
 
-2. Deploy on Koyeb
-   - Create an account on [Koyeb](https://app.koyeb.com/auth/signup). [Sign up now](https://app.koyeb.com/auth/signup).
-   - Get [DATABASE_URL](https://github.com/lyfe00011/whatsapp-bot-md/wiki/DATABASE_URL). You'll need this while deploying.
-   - Get [SESSION_ID](https://qr-hazel-alpha.vercel.app/md). Open Linked Devices in WhatsApp and [SCAN](https://qr-hazel-alpha.vercel.app/md) now.
-   - Get the Koyeb API key. [Let's Go](https://app.koyeb.com/account/api).
-   - [DEPLOY](https://qr-hazel-alpha.vercel.app/koyeb) now.
-   - Enter [Environment Variables](https://github.com/lyfe00011/whatsapp-bot-md/wiki/Environment_Variables). [Read More](https://github.com/lyfe00011/whatsapp-bot-md/wiki/Environment_Variables).
-   - Enter a name and click "Create Service."
+
 
 3. Deploy on VPS or PC (Example here as in Ubuntu)
 
