@@ -1,23 +1,23 @@
-const { Client } = require('./lib/client')
+const { Client, logger } = require('./lib/client')
 const { DATABASE, VERSION } = require('./config')
 const { stopInstance } = require('./lib/pm2')
 
 const start = async () => {
-	try {
-		logger.info(`levanter ${VERSION}`)
-		try {
-			await DATABASE.authenticate()
-		} catch (error) {
-			console.error('Unable to connect to the database:', error)
-			stopInstance()
-		}
-		await DATABASE.sync()
-		logger.info('Database syncing...')
-		const bot = new Client()
-		await bot.init()
-		await bot.connect()
-	} catch (error) {
-		logger.error(error)
-	}
+  logger.info(`levanter ${VERSION}`)
+  try {
+    await DATABASE.authenticate({ retry: { max: 3 } })
+  } catch (error) {
+    console.error('Unable to connect to the database:', error.message, process.env.DATABASE_URL)
+    return stopInstance()
+  }
+  try {
+    logger.info('Database syncing...')
+    await DATABASE.sync()
+    const bot = new Client()
+    await bot.init()
+    await bot.connect()
+  } catch (error) {
+    logger.error(error)
+  }
 }
 start()
